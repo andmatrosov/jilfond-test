@@ -1,0 +1,43 @@
+.root {
+	margin-bottom: 20px;
+
+	input {
+		width: 100%;
+		background-color: #fff;
+		border: 1px solid #e9ecef;
+		border-radius: 8px;
+		padding: 14px 16px;
+		color: #333333;
+
+		&:focus {
+			outline: 1px solid #d7d6d6;
+		}
+
+		&::-webkit-input-placeholder {
+			color: #888;
+		}
+
+		&::-moz-placeholder {
+			color: #888;
+		}
+
+		&:-ms-input-placeholder {
+			color: #888;
+		}
+
+		&::-ms-input-placeholder {
+			color: #888;
+		}
+
+		&::placeholder {
+			color: #888;
+		}
+	}
+
+	.error {
+		color: red;
+		font-size: 12px;
+		margin: 5px 10px;
+		line-height: 1.3;
+	}
+}

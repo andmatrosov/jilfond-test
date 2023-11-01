@@ -1,0 +1,61 @@
+.item {
+	cursor: pointer;
+
+	a {
+		position: relative;
+		display: flex;
+		max-width: 100%;
+		border-radius: 10px;
+		box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+		overflow: hidden;
+		margin-bottom: 18px;
+		border: 1px solid #fff;
+
+		&:hover {
+			background-color: #e0e0e0;
+			border: 1px solid #e0e0e0;
+		}
+
+		h4 {
+			margin: 0;
+			font-size: 14px;
+			width: 100%;
+			color: #333;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+
+		p {
+			margin: 2px 0 0 0;
+			font-size: 14px;
+			width: 100%;
+			color: #76787d;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+	}
+	&Img {
+		width: 70px;
+		height: 70px;
+
+		img {
+			display: block;
+			margin: 0;
+			min-width: 100%;
+		}
+	}
+}
+
+.info {
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+	justify-content: center;
+	max-width: 100%;
+	padding: 12px 15px;
+	min-width: 0;
+}
+
+a {
+}
