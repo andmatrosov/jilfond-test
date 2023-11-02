@@ -6,15 +6,9 @@ import { useEffect } from 'react';
 import styles from './EmployeeInfo.module.scss';
 
 const EmployeeInfo = () => {
-    const { id } = useParams();
-    const dispatch = useDispatch();
-    const { users, currentUser } = useSelector((state) => state.users);
-
-    useEffect(() => {
-        if (users.length) {
-            dispatch(setCurrentUser(Number(id)));
-        }
-    }, [users, dispatch, id]);
+    // const { id } = useParams();
+    // const dispatch = useDispatch();
+    const { currentUser } = useSelector((state) => state.users);
 
     return (
         <>

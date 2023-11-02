@@ -1,20 +1,24 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-export const fetchUsers = createAsyncThunk('users/fetchUserStatus', async () => {
+export const fetchUsers = createAsyncThunk('users/fetchUserStatus', async (params = '') => {
     try {
-        const { data } = await axios.get('https://jsonplaceholder.typicode.com/users');
+        const { data } = await axios.get(
+            'https://jsonplaceholder.typicode.com/users' + `${params}`,
+        );
+        console.log('FETCH PARAMS', params);
+        console.log('FETCH USERS', data);
         return data;
     } catch (err) {
         console.error('fetchUsers FAILED: ', err);
+        alert('Произошла ошибка получения списка пользователей');
     }
 });
 
 const initialState = {
     users: [],
     currentUser: null,
-    search: [],
-    status: 'loading',
+    status: '',
 };
 
 const usersSlice = createSlice({
@@ -24,12 +28,17 @@ const usersSlice = createSlice({
         setUsers(state, action) {
             state.users = action.payload;
         },
-        setSearch(state, action) {
-            state.search = action.payload;
+        setStatus(state, action) {
+            state.status = action.payload;
         },
         setCurrentUser(state, action) {
-            console.log('REDUCER', action.payload);
             state.currentUser = state.users.find((user) => user.id === action.payload);
+        },
+        setCurrentUserFromLink(state, action) {
+            state.currentUser = state.users.find((user) => user.id === action.payload);
+        },
+        clearCurrentUser(state) {
+            state.currentUser = [];
         },
     },
     extraReducers(builder) {
@@ -49,29 +58,30 @@ const usersSlice = createSlice({
     },
 });
 
-export const { setItems, setSearch, setCurrentUser } = usersSlice.actions;
+export const { setUsers, setStatus, setCurrentUser, setCurrentUserFromLink, clearCurrentUser } =
+    usersSlice.actions;
 
-export const selectFilteredUsers = (state) => {
-    const { users, search } = state;
+// export const selectFilteredUsers = (state) => {
+//     const { users, search } = state;
 
-    if (!search.length) {
-        return [];
-    }
+//     if (!search.length) {
+//         return [];
+//     }
 
-    const searchUsers = () => {
-        let resulSearch = [];
-        if (typeof search[0] === 'number') {
-            resulSearch = users.filter((user) => search.includes(user.id));
-        } else {
-            resulSearch = users.filter((user) =>
-                search.some((substring) => user.name.toLowerCase().includes(substring)),
-            );
-        }
+//     const searchUsers = () => {
+//         let resulSearch = [];
+//         if (typeof search[0] === 'number') {
+//             resulSearch = users.filter((user) => search.includes(user.id));
+//         } else {
+//             resulSearch = users.filter((user) =>
+//                 search.some((substring) => user.name.toLowerCase().includes(substring)),
+//             );
+//         }
 
-        return resulSearch;
-    };
+//         return resulSearch;
+//     };
 
-    return searchUsers();
-};
+//     return searchUsers();
+// };
 
 export default usersSlice.reducer;

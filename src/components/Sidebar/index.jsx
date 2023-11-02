@@ -8,7 +8,7 @@ const Sidebar = () => {
     return (
         <div className={styles.root}>
             <Title>Поиск сотрудников</Title>
-            <SearchInput placeholder="Введите id или имя" />
+            <SearchInput placeholder="Введите id или username" />
             <Title>Результаты</Title>
             <SearchList />
         </div>

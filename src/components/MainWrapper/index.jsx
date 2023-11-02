@@ -4,13 +4,6 @@ import { fetchUsers } from '../../redux/usersSlice';
 import { useEffect } from 'react';
 
 const MainWrapper = (props) => {
-    const dispatch = useDispatch();
-    const { search } = useSelector((state) => state.users);
-
-    useEffect(() => {
-        dispatch(fetchUsers());
-    }, [search]);
-
     return <div className={styles.wrapper}>{props.children}</div>;
 };
 
