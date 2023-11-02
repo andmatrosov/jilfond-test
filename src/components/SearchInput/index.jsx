@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import debounce from 'lodash.debounce';
 import styles from './Input.module.scss';
 import { useDispatch } from 'react-redux';
-import { fetchUsers, clearCurrentUser, setUsers, setStatus } from '../../redux/usersSlice';
+import { fetchUsers, clearStategot } from '../../redux/usersSlice';
 import { useNavigate } from 'react-router-dom';
 import crossIcon from '/cross.svg';
 
@@ -16,9 +16,9 @@ const SidebarInput = ({ placeholder }) => {
         const value = event.target.value;
         setSearchValue(value);
         if (!value) {
-            dispatch(setUsers([]));
-            dispatch(setStatus(''));
+            dispatch(clearState());
             setInputError(false);
+            return navigate('/');
         }
     };
 
@@ -67,13 +67,14 @@ const SidebarInput = ({ placeholder }) => {
 
     const inputClear = () => {
         setSearchValue('');
+        dispatch(clearState());
+        return navigate('/');
     };
 
     useEffect(() => {
         updateSearchValue(searchValue);
         if (searchValue.lenght) {
-            dispatch(setUsers([]));
-            dispatch(clearCurrentUser());
+            dispatch(clearState());
             return navigate('/');
         }
     }, [searchValue]);

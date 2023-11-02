@@ -37,8 +37,10 @@ const usersSlice = createSlice({
         setCurrentUserFromLink(state, action) {
             state.currentUser = state.users.find((user) => user.id === action.payload);
         },
-        clearCurrentUser(state) {
+        clearState(state) {
             state.currentUser = [];
+            state.users = [];
+            state.status = '';
         },
     },
     extraReducers(builder) {
@@ -58,7 +60,7 @@ const usersSlice = createSlice({
     },
 });
 
-export const { setUsers, setStatus, setCurrentUser, setCurrentUserFromLink, clearCurrentUser } =
+export const { setUsers, setStatus, setCurrentUser, setCurrentUserFromLink, clearState } =
     usersSlice.actions;
 
 // export const selectFilteredUsers = (state) => {
