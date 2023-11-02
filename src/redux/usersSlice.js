@@ -63,27 +63,4 @@ const usersSlice = createSlice({
 export const { setUsers, setStatus, setCurrentUser, setCurrentUserFromLink, clearState } =
     usersSlice.actions;
 
-// export const selectFilteredUsers = (state) => {
-//     const { users, search } = state;
-
-//     if (!search.length) {
-//         return [];
-//     }
-
-//     const searchUsers = () => {
-//         let resulSearch = [];
-//         if (typeof search[0] === 'number') {
-//             resulSearch = users.filter((user) => search.includes(user.id));
-//         } else {
-//             resulSearch = users.filter((user) =>
-//                 search.some((substring) => user.name.toLowerCase().includes(substring)),
-//             );
-//         }
-
-//         return resulSearch;
-//     };
-
-//     return searchUsers();
-// };
-
 export default usersSlice.reducer;

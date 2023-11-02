@@ -6,8 +6,6 @@ import { useEffect } from 'react';
 import styles from './EmployeeInfo.module.scss';
 
 const EmployeeInfo = () => {
-    // const { id } = useParams();
-    // const dispatch = useDispatch();
     const { currentUser } = useSelector((state) => state.users);
 
     return (
@@ -15,7 +13,7 @@ const EmployeeInfo = () => {
             {currentUser ? (
                 <div className={styles.root}>
                     <div className={`${styles.side} ${styles.sideLeft}`}>
-                        <img className={styles.img} src="/img/photo-placeholder.jpg" alt="" />
+                        <img className={styles.img} src="./img/photo-placeholder.jpg" alt="" />
                     </div>
                     <div className={`${styles.side} ${styles.sideRight}`}>
                         <h3>{currentUser.name}</h3>

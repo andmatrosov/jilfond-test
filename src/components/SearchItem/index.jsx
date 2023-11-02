@@ -14,7 +14,7 @@ const SearchItem = ({ name, email, id }) => {
         <li className={styles.item}>
             <Link to={`/user/${id}`} onClick={() => onClickUserItem()}>
                 <div className={styles.itemImg}>
-                    <img src="/img/photo-placeholder--small.jpg" alt="" />
+                    <img src="./img/photo-placeholder--small.jpg" alt="" />
                 </div>
                 <div className={styles.info}>
                     <h4 title={name}>{name}</h4>
