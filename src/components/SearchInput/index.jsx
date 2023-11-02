@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import debounce from 'lodash.debounce';
 import styles from './Input.module.scss';
 import { useDispatch } from 'react-redux';
-import { fetchUsers, clearStategot } from '../../redux/usersSlice';
+import { fetchUsers, clearState } from '../../redux/usersSlice';
 import { useNavigate } from 'react-router-dom';
 import crossIcon from '/cross.svg';
 
