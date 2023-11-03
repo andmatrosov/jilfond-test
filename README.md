@@ -6,7 +6,10 @@
 -   React Router
 -   Redux Toolkit
 -   SCSS Modules
+-   axios
 
 Деплой с помощью GH Pages
+
+Актуальная версия кода
 
 [Демо на GitHub Pages](https://andmatrosov.github.io/jilfond-test/)
